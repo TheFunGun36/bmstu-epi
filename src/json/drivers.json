@@ -1,0 +1,158 @@
+[
+    {
+        "name": "RELY",
+        "displayName": "Требуемая надёжность",
+        "levels": {
+            "veryLow": 0.75,
+            "low": 0.86,
+            "nominal": 1.0,
+            "high": 1.15,
+            "veryHigh": 1.4
+        }
+    },
+    {
+        "name": "DATA",
+        "displayName": "Размер базы данных",
+        "levels": {
+            "low": 0.94,
+            "nominal": 1.0,
+            "high": 1.08,
+            "veryHigh": 1.16
+        }
+    },
+    {
+        "name": "CPLX",
+        "displayName": "Сложность продукта",
+        "levels": {
+            "veryLow": 0.7,
+            "low": 0.85,
+            "nominal": 1.0,
+            "high": 1.15,
+            "veryHigh": 1.3
+        }
+    },
+    {
+        "name": "TIME",
+        "displayName": "Ограничение времени выполнения",
+        "levels": {
+            "nominal": 1.0,
+            "high": 1.11,
+            "veryHigh": 1.5
+        }
+    },
+    {
+        "name": "STOR",
+        "displayName": "Ограничение объёма основной памяти",
+        "levels": {
+            "nominal": 1.0,
+            "high": 1.06,
+            "veryHigh": 1.21
+        }
+    },
+    {
+        "name": "VIRT",
+        "displayName": "Изменчивость виртуальной машины",
+        "levels": {
+            "low": 0.87,
+            "nominal": 1.0,
+            "high": 1.15,
+            "veryHigh": 1.3
+        }
+    },
+    {
+        "name": "TURN",
+        "displayName": "Время реакции компьютера",
+        "levels": {
+            "low": 0.87,
+            "nominal": 1.0,
+            "high": 1.07,
+            "veryHigh": 1.15
+        }
+    },
+    {
+        "name": "ACAP",
+        "displayName": "Способности аналитика",
+        "levels": {
+            "veryLow": 1.46,
+            "low": 1.19,
+            "nominal": 1.0,
+            "high": 0.86,
+            "veryHigh": 0.71
+        }
+    },
+    {
+        "name": "AEXP",
+        "displayName": "Знание приложений",
+        "levels": {
+            "veryLow": 1.29,
+            "low": 1.15,
+            "nominal": 1.0,
+            "high": 0.91,
+            "veryHigh": 0.82
+        }
+    },
+    {
+        "name": "PCAP",
+        "displayName": "Способности программиста",
+        "levels": {
+            "veryLow": 1.42,
+            "low": 1.17,
+            "nominal": 1.0,
+            "high": 0.86,
+            "veryHigh": 0.7
+        }
+    },
+    {
+        "name": "VEXP",
+        "displayName": "Знание виртуальной машины",
+        "levels": {
+            "veryLow": 1.21,
+            "low": 1.1,
+            "nominal": 1.0,
+            "high": 0.9
+        }
+    },
+    {
+        "name": "LEXP",
+        "displayName": "Знание языка программирования",
+        "levels": {
+            "veryLow": 1.14,
+            "low": 1.07,
+            "nominal": 1.0,
+            "high": 0.95
+        }
+    },
+    {
+        "name": "MODP",
+        "displayName": "Использование современных методов",
+        "levels": {
+            "veryLow": 1.24,
+            "low": 1.1,
+            "nominal": 1.0,
+            "high": 0.91,
+            "veryHigh": 0.82
+        }
+    },
+    {
+        "name": "TOOL",
+        "displayName": "Использование программных инструментов",
+        "levels": {
+            "veryLow": 1.24,
+            "low": 1.1,
+            "nominal": 1.0,
+            "high": 0.91,
+            "veryHigh": 0.82
+        }
+    },
+    {
+        "name": "SCED",
+        "displayName": "Требуемые сроки разработки",
+        "levels": {
+            "veryLow": 1.23,
+            "low": 1.08,
+            "nominal": 1.0,
+            "high": 1.04,
+            "veryHigh": 1.1
+        }
+    }
+]
