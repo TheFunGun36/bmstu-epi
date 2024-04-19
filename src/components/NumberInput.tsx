@@ -6,7 +6,8 @@ interface NumberInputProps {
   value: number;
   label?: string;
   setValue: (_value: number) => void;
-  sx?: SxProps<Theme>
+  sx?: SxProps<Theme>;
+  variant?: 'outlined' | 'standard' | 'filled';
 }
 
 function NumberInput(p: NumberInputProps) {
@@ -43,7 +44,7 @@ function NumberInput(p: NumberInputProps) {
       onChange={handleChange}
       error={!strValid}
       label={p.label}
-      variant='outlined'
+      variant={p.variant || 'standard'}
       sx={p.sx}
     />
   )

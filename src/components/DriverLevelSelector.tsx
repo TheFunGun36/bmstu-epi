@@ -1,24 +1,27 @@
-import { MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { MenuItem, Select, SelectChangeEvent, SxProps, Theme } from '@mui/material';
 import { ExpensesDriver, SelectedLevel } from '../model/ExpensesDrivers';
 
 interface DriverLevelSelectorParams {
   driver: ExpensesDriver,
-  setLevel: (_driver: SelectedLevel) => void
+  setLevel: (_driver: SelectedLevel) => void,
+  sx?: SxProps<Theme>,
+  variant?: 'standard' | 'outlined' | 'filled'
 }
 
-function DriverLevelSelector({ driver, setLevel }: DriverLevelSelectorParams) {
+function DriverLevelSelector({ driver, setLevel, sx, variant }: DriverLevelSelectorParams) {
   const handleChange = (e: SelectChangeEvent) => {
     setLevel(e.target.value as SelectedLevel);
   };
 
   return (
     <Select
+      sx={sx}
       labelId={`select-${driver.name}-label`}
       id={`select-${driver.name}`}
       label={driver.name}
       value={driver.level}
       onChange={handleChange}
-      variant='standard'
+      variant={variant || 'standard'}
     >
       {driver.levels.veryLow &&
         <MenuItem value={SelectedLevel.VERY_LOW}>Очень низкий</MenuItem>}
