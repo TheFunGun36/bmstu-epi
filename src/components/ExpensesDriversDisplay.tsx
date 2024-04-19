@@ -1,25 +1,9 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Paper, Table, TableBody, TableContainer, TableHead, TableRow } from '@mui/material';
 import { ExpensesDriver, ExpensesDriverLevels, SelectedLevel, driverLevel } from '../model/ExpensesDrivers';
 import expensesDrivers from '../json/drivers.json'
 import DriverLevelSelector from './DriverLevelSelector';
-import { PropsWithChildren, useState } from 'react';
-
-interface TCProps {
-  align?: 'inherit' | 'left' | 'center' | 'right' | 'justify';
-  p?: number;
-  pl?: number;
-  pr?: number;
-}
-
-function TC(p: PropsWithChildren<TCProps>) {
-  return (
-    <TableCell
-      sx={{ padding: p.p || 0.5, pl: p.pl, pr: p.pr }}
-      align={p.align}
-    >
-      {p.children}
-    </TableCell>)
-}
+import { useState } from 'react';
+import { SmallTableCell as TC } from './SmallTableCell';
 
 export interface ExpensesDriversDisplayProps {
   setEAF: (_eaf: number) => void
@@ -68,6 +52,7 @@ function ExpensesDriversDisplay(p: ExpensesDriversDisplayProps) {
           <TableRow>
             <TC pl={1}>Идентификатор</TC>
             <TC>Уточняющий фактор работ</TC>
+            <TC>Значение</TC>
             <TC pr={1}>Значение параметра</TC>
           </TableRow>
         </TableHead>
@@ -83,6 +68,7 @@ function ExpensesDriversDisplay(p: ExpensesDriversDisplayProps) {
                     setLevel={level => onLevelChange(index, level)}
                   />
                 </TC>
+                <TC>{driverLevel(value)}</TC>
               </TableRow>
             )
           })}
