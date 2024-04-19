@@ -7,8 +7,3 @@ export function readable(n: number) {
 
   return ((n) / 1e6).toString().slice(0, 5) + ' млн.';
 }
-
-function wrap(n?: number) {
-  if (n)
-    return '(' + n.toString() + ')';
-}

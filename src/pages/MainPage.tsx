@@ -1,6 +1,6 @@
 import { AppBar, Box, Button, Divider, Grid, IconButton, Paper, Toolbar, Typography } from '@mui/material';
 import ExpensesDriversDisplay from '../components/ExpensesDriversDisplay';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { laborCosts as calcLaborCosts, projectModeDisplayName, projectModeFromKloc, projectTime as calcProjectTime } from '../model/ProjectMode';
 import NumberInput from '../components/NumberInput';
 import { DarkMode, LightMode } from '@mui/icons-material';
@@ -13,9 +13,9 @@ import lifecycle from '../json/lifecycle.json';
 import activity from '../json/activity.json';
 import ActivityStage from '../model/ActivityStage';
 import SalaryInput from '../components/SalaryInput';
-import { AxisConfig, ChartsReferenceLine, LineChart, LineSeriesType } from '@mui/x-charts';
+import { AxisConfig, LineChart, LineSeriesType } from '@mui/x-charts';
 import drivers from '../json/drivers.json';
-import { ExpensesDriver, SelectedLevel, driverIterator, driverIteratorNext, driverLevel } from '../model/ExpensesDrivers';
+import { ExpensesDriver, driverIterator, driverIteratorNext, driverLevel } from '../model/ExpensesDrivers';
 
 interface MainPageProps {
   isDarkTheme: boolean;
@@ -27,7 +27,7 @@ const activityStages: ActivityStage[] = activity;
 
 const calculateBars = (labor: number[], time: number[]) => {
   const result: number[] = [];
-  lifecycleStages.forEach((el, i) => {
+  lifecycleStages.forEach((_, i) => {
     const days = Math.round(labor[i] / time[i]);
     result.push(...new Array(Math.ceil(time[i])).fill(days));
   });
@@ -91,6 +91,9 @@ export function MainPage(p: MainPageProps) {
   const [dotsLabors, setDotsLabors] = useState<ParamSpread[] | undefined>();
   const [dotsX, setDotsX] = useState<number[][]>([[]]);
 
+  const myRef = useRef<any>(undefined);
+  const executeScroll = () => { myRef && myRef.current && myRef.current.scrollIntoView(); };
+
   const recalculateProject = () => {
     const labor = lifecycleStages.map(e => e.laborPercent * laborCosts / 100);
     const time = lifecycleStages.map(e => e.timePercent * projectTime / 100);
@@ -103,6 +106,7 @@ export function MainPage(p: MainPageProps) {
     setDotsX(x);
     setDotsLabors(labors);
     setDotsTimes(times);
+    executeScroll();
   };
 
   const toggleTheme = () => {
@@ -161,6 +165,7 @@ export function MainPage(p: MainPageProps) {
         </Grid>
         <Grid item xs={26}>
           <BarChart
+            ref={myRef}
             series={[{ data: bars }]}
             xAxis={[{ scaleType: 'band', label: 'Месяц', data: bars.map((_, i) => i) }]}
             yAxis={[{ scaleType: 'linear', label: 'Количество работников' }]}
@@ -172,26 +177,33 @@ export function MainPage(p: MainPageProps) {
           <Grid item xs={13}>
             <Typography variant='h5' align='center'>Трудозатраты</Typography>
             <LineChart
-              //series={[{ data: dotsLabors[0].values, label: dotsLabors[0].name, type: 'line' }]}
-              //xAxis={[{ data: dotsX, label: 'Параметр' }]}
               series={dotsLabors.map((e, i): LineSeriesType => { return { data: e.values, label: e.name, type: 'line', xAxisKey: `axis-${i}` }; })}
-              xAxis={dotsX.map((e, i): AxisConfig => { return { id: `axis-${i}`, scaleType: 'linear', label: 'Параметр', data: e }; })}
+              xAxis={dotsX.map((e, i): AxisConfig => { return { id: `axis-${i}`, label: 'Параметр', data: e }; })}
               yAxis={[{ scaleType: 'linear', label: 'Трудозатраты' }]}
               grid={{ horizontal: true, vertical: true }}
               height={500}
+              tooltip={{ trigger: 'item' }}
+              axisHighlight={{
+                x: 'none',
+                y: 'line',
+              }}
             />
+            <div id='graph-view-pos' />
           </Grid>}
         {dotsTimes && dotsX &&
           <Grid item xs={13}>
             <Typography variant='h5' align='center'>Время</Typography>
             <LineChart
-              //series={[{ data: dotsTimes[0].values, label: dotsTimes[0].name, type: 'line' }]}
-              // xAxis={[{ data: dotsX, label: 'Параметр' }]}
               series={dotsTimes.map((e, i): LineSeriesType => { return { data: e.values, label: e.name, type: 'line', xAxisKey: `axis-${i}` }; })}
-              xAxis={dotsX.map((e, i): AxisConfig => { return { id: `axis-${i}`, scaleType: 'linear', label: 'Параметр', data: e }; })}
+              xAxis={dotsX.map((e, i): AxisConfig => { return { id: `axis-${i}`, label: 'Параметр', data: e }; })}
               yAxis={[{ scaleType: 'linear', label: 'Время' }]}
               grid={{ horizontal: true, vertical: true }}
               height={500}
+              tooltip={{ trigger: 'item' }}
+              axisHighlight={{
+                x: 'none',
+                y: 'line',
+              }}
             />
           </Grid>}
       </Grid>

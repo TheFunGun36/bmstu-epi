@@ -1,14 +1,39 @@
 {
   "name": "dver-frontend",
   "private": true,
+  "main": "public/electron.cjs",
   "version": "1.0.0",
+  "homepage": "./",
   "type": "module",
+  "build": {
+    "appId": "com.nope.lab6",
+    "productName": "Cheprasov Lab 6",
+    "copyright": "Copyright © 2024 jora",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": ["portable"]
+    },
+    "portable": {
+      "artifactName": "lab6_portable.exe"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "electron-run": "electron .",
+    "electron-build": "electron-builder -c.extraMetadata.main=dist/electron.cjs"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -24,6 +49,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "electron": "^30.0.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@testing-library/user-event": "^14.5.2",
@@ -34,6 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "electron-builder": "^24.13.3",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",

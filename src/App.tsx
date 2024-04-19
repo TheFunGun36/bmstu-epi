@@ -1,5 +1,3 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NotFoundPage from './pages/NotFoundPage';
 import { Box, CssBaseline, ThemeProvider } from '@mui/material';
 import { MainPage } from './pages/MainPage';
 import { darkTheme, lightTheme } from './theme';
@@ -12,14 +10,7 @@ function App() {
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <CssBaseline />
       <Box>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={
-              <MainPage isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme}/>
-            } />
-            <Route path='*' Component={NotFoundPage} />
-          </Routes>
-        </BrowserRouter>
+        <MainPage isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme}/>
       </Box>
     </ThemeProvider>
   );
