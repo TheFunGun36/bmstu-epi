@@ -18,9 +18,8 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "electron.cjs"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

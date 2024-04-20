@@ -1,75 +1,30 @@
 {
-  "name": "dver-frontend",
+  "name": "epi-lab6",
   "private": true,
-  "main": "public/electron.cjs",
-  "version": "1.0.0",
-  "homepage": "./",
+  "version": "0.0.0",
   "type": "module",
-  "build": {
-    "appId": "com.nope.lab6",
-    "productName": "Cheprasov Lab 6",
-    "copyright": "Copyright © 2024 jora",
-    "mac": {
-      "category": "public.app-category.utilities"
-    },
-    "win": {
-      "target": ["portable"]
-    },
-    "portable": {
-      "artifactName": "lab6_portable.exe"
-    },
-    "files": [
-      "dist/**/*",
-      "node_modules/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    }
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest",
-    "electron-run": "electron .",
-    "electron-build": "electron-builder -c.extraMetadata.main=dist/electron.cjs"
+    "tauri": "tauri"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.15",
-    "@mui/material": "^5.15.14",
+    "@mui/material": "^5.15.15",
     "@mui/x-charts": "^7.3.0",
-    "axios": "^1.6.8",
+    "@tauri-apps/api": "^1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-draggable": "^4.4.6",
-    "react-router-dom": "^6.22.3",
-    "uuid": "^9.0.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "electron": "^30.0.1",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.2",
-    "@testing-library/user-event": "^14.5.2",
-    "@types/jest": "^29.5.12",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@types/uuid": "^9.0.8",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "electron-builder": "^24.13.3",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "@tauri-apps/cli": "^1",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.0.2",
+    "vite": "^5.0.0"
   }
 }
