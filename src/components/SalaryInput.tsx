@@ -6,6 +6,7 @@ import { readable } from "../model/Misc";
 
 export interface SalaryInputProps {
   budget: number;
+  eaf: number;
   setBudget: (value: number) => void;
   lifecycleLabor: number[];
   lifecycleTime: number[];
@@ -30,7 +31,7 @@ export function SalaryInput(p: SalaryInputProps) {
     };
 
     p.setBudget(calculateBudget(p.lifecycleLabor, p.lifecycleTime, salaries));
-  }, [salaryAnalyst, salaryArchitect, salaryDeveloper, salaryManager, salaryQA, salaryDevOps]);
+  }, [salaryAnalyst, salaryArchitect, salaryDeveloper, salaryManager, salaryQA, salaryDevOps, p.lifecycleLabor, p.lifecycleTime]);
 
   return (
     <>

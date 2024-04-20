@@ -158,7 +158,12 @@ export function MainPage(p: MainPageProps) {
             <Typography><b>Трудозатраты:</b> {readable(laborCosts)} чел-мес.</Typography>
             <Typography><b>Время разработки:</b> {readable(projectTime)} мес.</Typography>
             <Divider sx={{ m: 1 }} />
-            <SalaryInput budget={budget} setBudget={setBudget} lifecycleLabor={lifecycleLabor} lifecycleTime={lifecycleTime} />
+            <SalaryInput
+              budget={budget}
+              setBudget={setBudget}
+              lifecycleLabor={lifecycleLabor}
+              lifecycleTime={lifecycleTime}
+            />
             <Divider sx={{ m: 1 }} />
             <Button onClick={recalculateProject} variant='contained'>Перерасчитать таблицы и графики</Button>
           </Box>
