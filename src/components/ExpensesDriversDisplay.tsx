@@ -52,8 +52,7 @@ function ExpensesDriversDisplay(p: ExpensesDriversDisplayProps) {
           <TableRow>
             <TC pl={1}>Идентификатор</TC>
             <TC>Уточняющий фактор работ</TC>
-            <TC>Значение</TC>
-            <TC pr={1}>Значение параметра</TC>
+            <TC pr={1}>Значение</TC>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -68,7 +67,6 @@ function ExpensesDriversDisplay(p: ExpensesDriversDisplayProps) {
                     setLevel={level => onLevelChange(index, level)}
                   />
                 </TC>
-                <TC>{driverLevel(value)}</TC>
               </TableRow>
             )
           })}
