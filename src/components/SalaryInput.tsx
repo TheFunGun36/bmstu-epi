@@ -12,12 +12,12 @@ export interface SalaryInputProps {
 }
 
 export function SalaryInput(p: SalaryInputProps) {
-  const [salaryAnalyst, setSalaryAnalyst] = useState(100);
-  const [salaryArchitect, setSalaryArchitect] = useState(100);
-  const [salaryDeveloper, setSalaryDeveloper] = useState(100);
-  const [salaryManager, setSalaryManager] = useState(100);
-  const [salaryQA, setSalaryQA] = useState(100);
-  const [salaryDevOps, setSalaryDevOps] = useState(100);
+  const [salaryAnalyst, setSalaryAnalyst] = useState(180000);
+  const [salaryArchitect, setSalaryArchitect] = useState(250000);
+  const [salaryDeveloper, setSalaryDeveloper] = useState(217000);
+  const [salaryManager, setSalaryManager] = useState(217000);
+  const [salaryQA, setSalaryQA] = useState(135000);
+  const [salaryDevOps, setSalaryDevOps] = useState(185000);
 
   useEffect(() => {
     const salaries: Salaries = {

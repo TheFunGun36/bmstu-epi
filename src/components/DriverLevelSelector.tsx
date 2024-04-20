@@ -24,15 +24,15 @@ function DriverLevelSelector({ driver, setLevel, sx, variant }: DriverLevelSelec
       variant={variant || 'standard'}
     >
       {driver.levels.veryLow &&
-        <MenuItem value={SelectedLevel.VERY_LOW}>Очень низкий</MenuItem>}
+        <MenuItem value={SelectedLevel.VERY_LOW}>Очень низкий ({driver.levels.veryLow})</MenuItem>}
       {driver.levels.low &&
-        <MenuItem value={SelectedLevel.LOW}>Низкий</MenuItem>}
+        <MenuItem value={SelectedLevel.LOW}>Низкий ({driver.levels.low})</MenuItem>}
       {driver.levels.nominal &&
-        <MenuItem value={SelectedLevel.NOMINAL}>Номинальный</MenuItem>}
+        <MenuItem value={SelectedLevel.NOMINAL}>Номинальный ({driver.levels.nominal})</MenuItem>}
       {driver.levels.high &&
-        <MenuItem value={SelectedLevel.HIGH}>Высокий</MenuItem>}
+        <MenuItem value={SelectedLevel.HIGH}>Высокий ({driver.levels.high})</MenuItem>}
       {driver.levels.veryHigh &&
-        <MenuItem value={SelectedLevel.VERY_HIGH}>Очень высокий</MenuItem>}
+        <MenuItem value={SelectedLevel.VERY_HIGH}>Очень высокий ({driver.levels.veryHigh})</MenuItem>}
     </Select>
   );
 }

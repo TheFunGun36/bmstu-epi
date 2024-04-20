@@ -29,7 +29,7 @@ const calculateBars = (labor: number[], time: number[]) => {
   const result: number[] = [];
   lifecycleStages.forEach((_, i) => {
     const days = Math.round(labor[i] / time[i]);
-    result.push(...new Array(Math.ceil(time[i])).fill(days));
+    result.push(...new Array(Math.round(time[i])).fill(days));
   });
   return result;
 };
