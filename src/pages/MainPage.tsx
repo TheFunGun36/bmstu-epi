@@ -85,7 +85,8 @@ export function MainPage(p: MainPageProps) {
   // CALCULATED ON DEMAND
   const [lifecycleLabor, setLifecycleLabor] = useState(lifecycleStages.map(e => e.laborPercent * laborCosts / 100));
   const [lifecycleTime, setLifecycleTime] = useState(lifecycleStages.map(e => e.timePercent * projectTime / 100));
-  const [activityLabor, setActivityLabor] = useState(activityStages.map(e => e.budgetPercent * laborCosts / 100));
+  const [activityLabor, setActivityLabor] = useState(activityStages.map(e => e.budgetPercent * (laborCosts * 1.08) / 100));
+  console.log(activityLabor);
   const [bars, setBars] = useState(calculateBars(lifecycleLabor, lifecycleTime));
   const [dotsTimes, setDotsTimes] = useState<ParamSpread[] | undefined>();
   const [dotsLabors, setDotsLabors] = useState<ParamSpread[] | undefined>();
@@ -100,7 +101,7 @@ export function MainPage(p: MainPageProps) {
     setBars(calculateBars(labor, time));
     setLifecycleLabor(labor);
     setLifecycleTime(time);
-    setActivityLabor(activityStages.map(e => e.budgetPercent * budget / 100));
+    setActivityLabor(activityStages.map(e => e.budgetPercent * (laborCosts * 1.08) / 100));
 
     const [x, labors, times] = calculateDots(kloc);
     setDotsX(x);
@@ -184,7 +185,7 @@ export function MainPage(p: MainPageProps) {
             <LineChart
               series={dotsLabors.map((e, i): LineSeriesType => { return { data: e.values, label: e.name, type: 'line', xAxisKey: `axis-${i}` }; })}
               xAxis={dotsX.map((e, i): AxisConfig => { return { id: `axis-${i}`, label: 'Параметр', data: e }; })}
-              yAxis={[{ scaleType: 'linear', label: 'Трудозатраты' }]}
+              yAxis={[{ scaleType: 'linear', label: 'Трудозатраты (чел-мес)' }]}
               grid={{ horizontal: true, vertical: true }}
               height={500}
               tooltip={{ trigger: 'item' }}
@@ -201,7 +202,7 @@ export function MainPage(p: MainPageProps) {
             <LineChart
               series={dotsTimes.map((e, i): LineSeriesType => { return { data: e.values, label: e.name, type: 'line', xAxisKey: `axis-${i}` }; })}
               xAxis={dotsX.map((e, i): AxisConfig => { return { id: `axis-${i}`, label: 'Параметр', data: e }; })}
-              yAxis={[{ scaleType: 'linear', label: 'Время' }]}
+              yAxis={[{ scaleType: 'linear', label: 'Время (месяц)' }]}
               grid={{ horizontal: true, vertical: true }}
               height={500}
               tooltip={{ trigger: 'item' }}
