@@ -6,7 +6,6 @@ import { readable } from "../model/Misc";
 
 export interface SalaryInputProps {
   budget: number;
-  eaf: number;
   setBudget: (value: number) => void;
   lifecycleLabor: number[];
   lifecycleTime: number[];
@@ -42,7 +41,7 @@ export function SalaryInput(p: SalaryInputProps) {
       <NumberInput forbidNegative label='Менеджер' value={salaryManager} setValue={setSalaryManager} sx={{ mb: 1 }} />
       <NumberInput forbidNegative label='QA' value={salaryQA} setValue={setSalaryQA} sx={{ mb: 1 }} />
       <NumberInput forbidNegative label='DevOps' value={salaryDevOps} setValue={setSalaryDevOps} sx={{ mb: 1 }} />
-      <Typography><b>Бюджет:</b> {readable(p.budget)} р.</Typography>
+      <Typography><b>Средняя зарплата:</b> {readable(p.budget)} р.</Typography>
     </>
   );
 }

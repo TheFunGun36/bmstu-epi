@@ -1,0 +1,82 @@
+[
+    {
+        "name": "EI",
+        "displayName": "Внешние вводы",
+        "count": 4,
+        "levelRange": {
+            "low": {
+                "value": 3
+            },
+            "nominal": {
+                "value": 4
+            },
+            "high": {
+                "value": 6
+            }
+        }
+    },
+    {
+        "name": "EO",
+        "displayName": "Внешние выводы",
+        "count": 3,
+        "levelRange": {
+            "low": {
+                "value": 4
+            },
+            "nominal": {
+                "value": 5
+            },
+            "high": {
+                "value": 7
+            }
+        }
+    },
+    {
+        "name": "EQ",
+        "displayName": "Внешние запросы",
+        "count": 2,
+        "levelRange": {
+            "low": {
+                "value": 3
+            },
+            "nominal": {
+                "value": 4
+            },
+            "high": {
+                "value": 6
+            }
+        }
+    },
+    {
+        "name": "ILF",
+        "displayName": "Внутренние логические файлы",
+        "count": 1,
+        "levelRange": {
+            "low": {
+                "value": 7
+            },
+            "nominal": {
+                "value": 10
+            },
+            "high": {
+                "value": 15
+            }
+        }
+    },
+    {
+        "name": "EIF",
+        "displayName": "Внешние интерфейсные файлы",
+        "count": 2,
+        "levelRange": {
+            "low": {
+                "value": 5
+            },
+            "nominal": {
+                "value": 7
+            },
+            "high": {
+                "value": 10
+            }
+        }
+    }
+]

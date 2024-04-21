@@ -1,9 +1,10 @@
 import { Paper, Table, TableBody, TableContainer, TableHead, TableRow } from '@mui/material';
-import { ExpensesDriver, ExpensesDriverLevels, SelectedLevel, driverLevel } from '../model/ExpensesDrivers';
+import { ExpensesDriver, driverLevelValue } from '../model/ExpensesDrivers';
 import expensesDrivers from '../json/drivers.json'
-import DriverLevelSelector from './DriverLevelSelector';
+import LevelSelector from './LevelSelector';
 import { useState } from 'react';
 import { SmallTableCell as TC } from './SmallTableCell';
+import { Level, LevelRange } from '../model/Level';
 
 export interface ExpensesDriversDisplayProps {
   setEAF: (_eaf: number) => void
@@ -13,14 +14,14 @@ function ExpensesDriversDisplay(p: ExpensesDriversDisplayProps) {
   const updateEAF = (drivers: ExpensesDriver[]) => {
     p.setEAF(
       drivers
-        .map(driver => driverLevel(driver))
+        .map(driver => driverLevelValue(driver))
         .reduce((a, b) => a * b, 1));
   }
   const [drivers, setDrivers] = useState<ExpensesDriver[]>(() => {
     const res = expensesDrivers.map(e => {
       const res: ExpensesDriver = {
         ...e,
-        level: SelectedLevel.NOMINAL
+        level: Level.NOMINAL
       };
       return res;
     });
@@ -28,9 +29,9 @@ function ExpensesDriversDisplay(p: ExpensesDriversDisplayProps) {
     return res;
   });
 
-  const onLevelChange = (index: number, level: SelectedLevel) => {
+  const onLevelChange = (index: number, level: Level) => {
     const newDrivers = drivers.map((value, i) => {
-      const levels: ExpensesDriverLevels = {
+      const levels: LevelRange = {
         ...value.levels
       };
       const res: ExpensesDriver = {
@@ -56,14 +57,15 @@ function ExpensesDriversDisplay(p: ExpensesDriversDisplayProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {drivers.map((value, index) => {
+          {drivers.map((driver, index) => {
             return (
-              <TableRow key={value.name}>
-                <TC align='center'>{value.name}</TC>
-                <TC>{value.displayName}</TC>
+              <TableRow key={driver.name}>
+                <TC align='center'>{driver.name}</TC>
+                <TC>{driver.displayName}</TC>
                 <TC>
-                  <DriverLevelSelector
-                    driver={value}
+                  <LevelSelector
+                    level={driver.level}
+                    levelRange={driver.levels}
                     setLevel={level => onLevelChange(index, level)}
                   />
                 </TC>

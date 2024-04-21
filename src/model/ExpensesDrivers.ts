@@ -1,64 +1,37 @@
-export type ExpensesDriverLevels = {
-  veryLow?: number,
-  low?: number,
-  nominal: number,
-  high?: number,
-  veryHigh?: number,
-};
-
-export enum SelectedLevel {
-  VERY_LOW = 'VERY_LOW',
-  LOW = 'LOW',
-  NOMINAL = 'NOMINAL',
-  HIGH = 'HIGH',
-  VERY_HIGH = 'VERY_HIGH',
-}
+import { Level, LevelRange, levelItem, levelValue } from "./Level";
 
 export type ExpensesDriver = {
   name: string,
   displayName: string,
-  levels: ExpensesDriverLevels,
-  level: SelectedLevel,
+  levels: LevelRange,
+  level: Level,
 };
 
-export function driverIterator(driver: ExpensesDriver): SelectedLevel | undefined {
-  return (driver.levels.veryLow && SelectedLevel.VERY_LOW)
-    || (driver.levels.low && SelectedLevel.LOW)
-    || SelectedLevel.NOMINAL;
+export function driverIterator(driver: ExpensesDriver): Level | undefined {
+  return (driver.levels.veryLow && Level.VERY_LOW)
+    || (driver.levels.low && Level.LOW)
+    || Level.NOMINAL;
 }
 
-export function driverIteratorNext(driver: ExpensesDriver, iterator: SelectedLevel): SelectedLevel | undefined {
+export function driverIteratorNext(driver: ExpensesDriver, iterator: Level): Level | undefined {
   switch (iterator) {
-    case SelectedLevel.VERY_LOW:
-      return SelectedLevel.LOW;
-    case SelectedLevel.LOW:
-      return SelectedLevel.NOMINAL;
-    case SelectedLevel.NOMINAL:
-      return driver.levels.high ? SelectedLevel.HIGH : undefined;
-    case SelectedLevel.HIGH:
-      return driver.levels.veryHigh ? SelectedLevel.VERY_HIGH : undefined;
+    case Level.VERY_LOW:
+      return Level.LOW;
+    case Level.LOW:
+      return Level.NOMINAL;
+    case Level.NOMINAL:
+      return driver.levels.high ? Level.HIGH : undefined;
+    case Level.HIGH:
+      return driver.levels.veryHigh ? Level.VERY_HIGH : undefined;
+    case Level.VERY_HIGH:
+      return driver.levels.ultraHigh ? Level.ULTRA_HIGH : undefined;
   }
 }
 
-export function driverMin(driver: ExpensesDriver) {
-  return driver.levels.veryLow || driver.levels.low || driver.levels.nominal;
+export function driverLevel(driver: ExpensesDriver) {
+  return levelItem(driver.levels, driver.level);
 }
 
-export function driverMax(driver: ExpensesDriver) {
-  return driver.levels.veryHigh || driver.levels.high || driver.levels.nominal;
-}
-
-export function driverLevel(driver: ExpensesDriver, level?: SelectedLevel) {
-  switch (driver.level || level) {
-    case SelectedLevel.VERY_LOW:
-      return driver.levels.veryLow as number;
-    case SelectedLevel.LOW:
-      return driver.levels.low as number;
-    case SelectedLevel.NOMINAL:
-      return driver.levels.nominal;
-    case SelectedLevel.HIGH:
-      return driver.levels.high as number;
-    case SelectedLevel.VERY_HIGH:
-      return driver.levels.veryHigh as number;
-  }
+export function driverLevelValue(driver: ExpensesDriver) {
+  return levelValue(driver.levels, driver.level);
 }

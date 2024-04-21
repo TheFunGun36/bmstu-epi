@@ -1,0 +1,168 @@
+[
+    {
+        "name": "PERS",
+        "displayName": "Возможности персонала",
+        "level": "VERY_HIGH",
+        "levels": {
+            "veryLow": {
+                "value": 1.62
+            },
+            "low": {
+                "value": 1.26
+            },
+            "nominal": {
+                "value": 1.00
+            },
+            "high": {
+                "value": 0.83
+            },
+            "veryHigh": {
+                "value": 0.63
+            },
+            "ultraHigh": {
+                "value": 0.50
+            }
+        }
+    },
+    {
+        "name": "RCPX",
+        "displayName": "Надежность и уровень сложности разрабатываемой системы",
+        "level": "VERY_HIGH",
+        "levels": {
+            "veryLow": {
+                "value": 0.60
+            },
+            "low": {
+                "value": 0.83
+            },
+            "nominal": {
+                "value": 1.00
+            },
+            "high": {
+                "value": 1.33
+            },
+            "veryHigh": {
+                "value": 1.91
+            },
+            "ultraHigh": {
+                "value": 2.72
+            }
+        }
+    },
+    {
+        "name": "RUSE",
+        "displayName": "Повторное использование компонентов",
+        "level": "LOW",
+        "levels": {
+            "low": {
+                "value": 0.95
+            },
+            "nominal": {
+                "value": 1.00
+            },
+            "high": {
+                "value": 1.07
+            },
+            "veryHigh": {
+                "value": 1.15
+            },
+            "ultraHigh": {
+                "value": 1.24
+            }
+        }
+    },
+    {
+        "name": "PDIF",
+        "displayName": "Сложность платформы разработки",
+        "level": "HIGH",
+        "levels": {
+            "low": {
+                "value": 0.87
+            },
+            "nominal": {
+                "value": 1.00
+            },
+            "high": {
+                "value": 1.29
+            },
+            "veryHigh": {
+                "value": 1.81
+            },
+            "ultraHigh": {
+                "value": 2.61
+            }
+        }
+    },
+    {
+        "name": "PREX",
+        "displayName": "Опыт персонала",
+        "level": "LOW",
+        "levels": {
+            "veryLow": {
+                "value": 1.33
+            },
+            "low": {
+                "value": 1.22
+            },
+            "nominal": {
+                "value": 1.00
+            },
+            "high": {
+                "value": 0.87
+            },
+            "veryHigh": {
+                "value": 0.74
+            },
+            "ultraHigh": {
+                "value": 0.62
+            }
+        }
+    },
+    {
+        "name": "FCIL",
+        "displayName": "Средства поддержки",
+        "level": "VERY_HIGH",
+        "levels": {
+            "veryLow": {
+                "value": 1.30
+            },
+            "low": {
+                "value": 1.10
+            },
+            "nominal": {
+                "value": 1.00
+            },
+            "high": {
+                "value": 0.87
+            },
+            "veryHigh": {
+                "value": 0.73
+            },
+            "ultraHigh": {
+                "value": 0.62
+            }
+        }
+    },
+    {
+        "name": "SCED",
+        "displayName": "График работ",
+        "level": "HIGH",
+        "levels": {
+            "veryLow": {
+                "value": 1.43
+            },
+            "low": {
+                "value": 1.14
+            },
+            "nominal": {
+                "value": 1.00
+            },
+            "high": {
+                "value": 1.00
+            },
+            "veryHigh": {
+                "value": 1.00
+            }
+        }
+    }
+]

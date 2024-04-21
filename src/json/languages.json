@@ -1,0 +1,61 @@
+[
+    {
+        "name": "ASM",
+        "fpModifier": 320
+    },
+    {
+        "name": "C",
+        "fpModifier": 128
+    },
+    {
+        "name": "Cobol",
+        "fpModifier": 106
+    },
+    {
+        "name": "Fortran",
+        "fpModifier": 106
+    },
+    {
+        "name": "Pascal",
+        "fpModifier": 90
+    },
+    {
+        "name": "C++",
+        "fpModifier": 53
+    },
+    {
+        "name": "Java",
+        "fpModifier": 53,
+        "percentage": 60
+    },
+    {
+        "name": "C#",
+        "fpModifier": 53
+    },
+    {
+        "name": "Ada",
+        "fpModifier": 49
+    },
+    {
+        "name": "SQL",
+        "fpModifier": 125,
+        "percentage": 30
+    },
+    {
+        "name": "Visual C++",
+        "fpModifier": 34
+    },
+    {
+        "name": "Delphi",
+        "fpModifier": 29
+    },
+    {
+        "name": "Perl",
+        "fpModifier": 21
+    },
+    {
+        "name": "JavaScript",
+        "fpModifier": 56,
+        "percentage": 10
+    }
+]
